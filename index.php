@@ -12,14 +12,16 @@
         <p>This website belongs to <strong>Elvin Madatov</strong></p>
     </div>
     <?php
-$file = fopen("/etc/passwd","r");
+    $file = fopen("/etc/passwd", "r");
 
-while(! feof($file))
-  {
-  echo fgets($file). "<br />";
-  }
-
-fclose($file);
-?> 
+    if ($file) {
+        while (($line = fgets($file)) !== false) {
+            echo htmlspecialchars($line) . "<br />";
+        }
+        fclose($file);
+    } else {
+        echo "Unable to open file.";
+    }
+    ?>
 </body>
 </html>
